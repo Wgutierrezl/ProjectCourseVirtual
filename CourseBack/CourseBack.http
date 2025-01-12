@@ -1,0 +1,6 @@
+@CourseBack_HostAddress = http://localhost:5077
+
+GET {{CourseBack_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

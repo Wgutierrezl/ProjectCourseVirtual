@@ -1,0 +1,50 @@
+﻿@page "/Cursos"
+@using Microsoft.AspNetCore.Authorization;
+@using Microsoft.AspNetCore.Components.Authorization;
+@inject IServiciosCursos ServiciosCursos;
+@attribute [Authorize(Roles ="Administrador,Instructor")]
+
+@code {
+
+	public List<Cursos>? ListaC { get; set; }
+	public string? MessageList { get; set; }
+
+	protected async Task GetCursos()
+	{
+		try
+		{
+			string url = "https://localhost:7093/api/Cursos";
+			var response = await ServiciosCursos.GetCursos<List<Cursos>>(url);
+			if(!response.Error)
+			{
+				ListaC = response.Response;
+				MessageList = String.Empty;
+			}
+			else
+			{
+				ListaC = null;
+				MessageList = await response.GetErrorMessageAsync();
+			}
+
+		}catch (Exception e)
+		{
+			ListaC = null;
+			MessageList = e.Message;
+		}
+	}
+
+	public Cursos Course { get; set; } = new Cursos();
+	public bool cur = false;
+	protected async Task postCursos()
+	{
+		try
+		{
+			
+
+		}catch(Exception e)
+		{
+			
+		}
+	}
+
+}
