@@ -14,10 +14,6 @@ namespace CourseBack.Data
         public DbSet<Evaluaciones> Evaluaciones { get; set; }
         public DbSet<PreguntasEvaluacion> preguntasEvaluacion { get; set; }
         public DbSet<Respuestas> Respuestas { get; set; }
-
-        //Agrego estas para saber si no causa error pero no las voy a utilizar
-        //public DbSet<LoginDTO> LoginDTO { get; set; }
-        //public DbSet<SesionDTO> sesionDTO { get;set; }
         // Para crear index y evitar repeticiones de nombres de los tipos de categorias
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

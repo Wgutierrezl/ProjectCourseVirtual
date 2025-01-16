@@ -18,51 +18,58 @@
             </NavLink>
         </div>
         <div class="nav-item px-3">
-            <NavLink class="nav-link" href="weather">
+            <NavLink class="nav-link" href="weather" >
                 <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Weather
             </NavLink>
         </div>
         <AuthorizeView Roles="Administrador,Instructor">
-            <div class="nav-item px-3">
-                <NavLink class="nav-link" href="Cursos">
-                    <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Cursos
-                </NavLink>
-            </div>
-            <div class="nav-item px-3">
-                <NavLink class="nav-link" href="Examenes">
-                    <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Examenes
-                </NavLink>
-            </div>
-            <div class="nav-item px-3">
-                <NavLink class="nav-link" href="PreguntasEvaluacion">
-                    <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Preguntas
-                </NavLink>
-            </div>
-
+            <Authorized>
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="Cursos" Match="NavLinkMatch.All">
+                        <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Cursos
+                    </NavLink>
+                </div>
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="Examenes" Match="NavLinkMatch.All">
+                        <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Examenes
+                    </NavLink>
+                </div>
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="PreguntasEvaluacion" Match="NavLinkMatch.All">
+                        <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Preguntas
+                    </NavLink>
+                </div>
+            </Authorized>
         </AuthorizeView>
 
         <AuthorizeView role="Instructor,Estudiante">
-            <div class="nav-item px-3">
-                <NavLink class="nav-link" href="Respuestas">
-                    <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Respuestas
-                </NavLink>
-            </div>
+            <Authorized>
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="Respuestas" Match="NavLinkMatch.All">
+                        <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Respuestas
+                    </NavLink>
+                </div>
+            </Authorized>
         </AuthorizeView>
 
         <AuthorizeView Roles="Administrador">
-            <div class="nav-item px-3">
-                <NavLink class="nav-link" href="Usuarios">
-                    <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Usuarios
-                </NavLink>
-            </div>
+            <Authorized>
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="Usuarios" Match="NavLinkMatch.All">
+                        <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Usuarios
+                    </NavLink>
+                </div>
+            </Authorized>
         </AuthorizeView>
 
         <AuthorizeView role="Administrador,Estudiante">
-            <div class="nav-item px-3">
-                <NavLink class="nav-link" href="Inscripciones">
-                    <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Inscripciones
-                </NavLink>
-            </div>
+            <Authorized>
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="Inscripciones" Match="NavLinkMatch.All">
+                        <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Inscripciones
+                    </NavLink>
+                </div>
+            </Authorized>
         </AuthorizeView>
     </nav>
 </div>

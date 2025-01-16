@@ -1,24 +1,23 @@
-﻿@using CourseFronted.Pages;
-@using Microsoft.AspNetCore.Components.Authorization;
-@inject NavigationManager NavManager;
-
+﻿@using Microsoft.AspNetCore.Components.Authorization;
+@using CourseFronted.Pages;
+@inject NavigationManager Navmanager
 
 <CascadingAuthenticationState>
     <Router AppAssembly="@typeof(App).Assembly">
         <Found Context="routeData">
             <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)">
                 <NotAuthorized>
+
                     @{
                         if (context.User.Identity!.IsAuthenticated != true)
                         {
-                            NavManager.NavigateTo("/");
+                            Navmanager.NavigateTo("/");
                         }
                         else
                         {
                             <p class="alert alert-danger">No esta autorizado para ver esta pagina</p>
                         }
                     }
-                    
                 </NotAuthorized>
             </AuthorizeRouteView>
 
@@ -31,4 +30,3 @@
         </NotFound>
     </Router>
 </CascadingAuthenticationState>
-
